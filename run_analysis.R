@@ -21,6 +21,7 @@ if(!file.exists("UCI HAR Dataset")){
         print("UCI HAR Dataset not found. Downloading data file")
         fileurl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
         download.file(fileurl,dest = "./getdata_projectfiles_UCI HAR Dataset.zip",method = "curl")
+        rm(fileurl)
         }
     print("Extracting data file")
     unzip("getdata_projectfiles_UCI HAR Dataset.zip")
@@ -102,6 +103,6 @@ print("Generating 'tidydata.txt' file")
 write.table(tidyData2, file = "tidydata.txt",row.name=FALSE)
         
 # Freeing memory of unnecessary variables
-rm(fileurl, activity_labels, features, subject, X, y, desiredFeatures)
+rm(activity_labels, features, subject, X, y, desiredFeatures)
         
 print("Done! Step 4 table is 'tidyData1' and Step 5 table is 'tidyData2'")
